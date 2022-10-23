@@ -1,39 +1,46 @@
 import { Request } from 'express';
 import { AppError, Role } from "./enums";
 
-export interface entityWithId {
+export interface entityWithId
+{
     id: number;
 }
 
-export interface whiteBoardType extends entityWithId {
+export interface whiteBoardType extends entityWithId
+{
     type: string;
 }
 
-export interface systemError {
+export interface systemError
+{
     key: AppError;
     code: number;
     message: string;
 }
 
-export interface sqlParameter {
+export interface sqlParameter
+{
     name: string;
     type: any;
     value: string | number;
 }
 
-export interface authenticationToken {
+export interface authenticationToken
+{
     userData: jwtUserData;
 }
 
-export interface jwtUserData {
+export interface jwtUserData
+{
     userId: number;
     roleId: Role;
-    loginDate: Date;
+    //loginDate: Date;
 }
 
 export interface AuthenticatedRequest extends Request, authenticationToken { }
 
-export interface user extends entityWithId {
+export interface user extends entityWithId
+{
     firstName: string;
     lastName: string;
     login?: string;
